@@ -1,0 +1,18 @@
+[submodule "src/segment_tools/FastSAM"]
+	path = src/segment_tools/FastSAM
+	url = https://github.com/CASIA-IVA-Lab/FastSAM.git
+[submodule "src/segment_tools/Depth-Anything_segtools"]
+	path = src/segment_tools/Depth-Anything_segtools
+	url = https://github.com/qwertyroiro/Depth-Anything_segtools.git
+[submodule "src/segment_tools/dinov2"]
+	path = src/segment_tools/dinov2
+	url = https://github.com/facebookresearch/dinov2.git
+[submodule "src/segment_tools/XMem"]
+	path = src/segment_tools/XMem
+	url = https://github.com/hkchengrex/XMem.git
+[submodule "src/segment_tools/GRiT"]
+	path = src/segment_tools/GRiT
+	url = https://github.com/JialianW/GRiT.git
+[submodule "src/segment_tools/OneFormer_segtools"]
+	path = src/segment_tools/OneFormer_segtools
+	url = https://github.com/qwertyroiro/OneFormer_segtools.git
