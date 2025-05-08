@@ -137,13 +137,23 @@ class SAM2:
                     labels=labels,
                 )
             elif bbox is not None:
-                bbox = np.array(bbox)
-                _, out_obj_ids, out_mask_logits = self.video_predictor.add_new_points_or_box(
-                    inference_state=state,
-                    frame_idx=0,
-                    obj_id=1,
-                    box=bbox,
-                )
+                if bbox.ndim == 2:
+                    for idx, bbox_ in enumerate(bbox):
+                        bbox_ = np.array(bbox_)
+                        _, out_obj_ids, out_mask_logits = self.video_predictor.add_new_points_or_box(
+                            inference_state=state,
+                            frame_idx=0,
+                            obj_id=idx + 1,
+                            box=bbox_,
+                        )
+                else:
+                    bbox = np.array(bbox)
+                    _, out_obj_ids, out_mask_logits = self.video_predictor.add_new_points_or_box(
+                        inference_state=state,
+                        frame_idx=0,
+                        obj_id=1,
+                        box=bbox,
+                    )
             elif mask is not None:
                 if mask.ndim == 3:
                     for idx, mask_ in enumerate(mask):
@@ -240,13 +250,23 @@ class SAM2:
                     labels=labels,
                 )
             elif bbox is not None:
-                bbox = np.array(bbox)
-                _, out_obj_ids, out_mask_logits = self.video_predictor.add_new_points_or_box(
-                    inference_state=state,
-                    frame_idx=0,
-                    obj_id=1,
-                    box=bbox,
-                )
+                if bbox.ndim == 2:
+                    for idx, bbox_ in enumerate(bbox):
+                        bbox_ = np.array(bbox_)
+                        _, out_obj_ids, out_mask_logits = self.video_predictor.add_new_points_or_box(
+                            inference_state=state,
+                            frame_idx=0,
+                            obj_id=idx + 1,
+                            box=bbox_,
+                        )
+                else:
+                    bbox = np.array(bbox)
+                    _, out_obj_ids, out_mask_logits = self.video_predictor.add_new_points_or_box(
+                        inference_state=state,
+                        frame_idx=0,
+                        obj_id=1,
+                        box=bbox,
+                    )
             elif mask is not None:
                 if mask.ndim == 3:
                     for idx, mask_ in enumerate(mask):
