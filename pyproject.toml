@@ -15,7 +15,7 @@ dependencies = [
     "ultralytics",
     "GroundingDINO @ https://github.com/Tada-Lab/segment_tools/releases/download/py310/groundingdino-0.1.0-cp310-cp310-linux_x86_64.whl",
     "clip @ https://github.com/Tada-Lab/segment_tools/releases/download/py310/clip-1.0-py3-none-any.whl",
-    "segment_anything @ https://github.com/qwertyroiro/segment_tools/releases/download/whl/segment_anything-1.0-py3-none-any.whl",
+    "segment_anything @ https://github.com/Tada-Lab/segment_tools/releases/download/py310/segment_anything-1.0-py3-none-any.whl",
     "transformers==4.47.0",
     "numpy == 1.26.4",
     "cityscapesscripts @ git+https://github.com/mcordts/cityscapesScripts.git@a7ac7b4062d1a80ed5e22d2ea2179c886801c77d",
