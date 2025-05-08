@@ -17,7 +17,7 @@ For detailed installation instructions for PyTorch and Torchvision, refer to the
 Install segment_tools using the following commands:
 
 ```bash
-pip install git+https://github.com/TadaLabInfo/segment_tools.git
+pip install git+https://github.com/Tada-Lab/segment_tools.git
 ```
 
 Ensure all the prerequisites are properly installed to avoid any compatibility issues during the setup process.
