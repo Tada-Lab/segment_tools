@@ -8,7 +8,10 @@ import sys
 import os
 from PIL import Image
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "Depth_Anything_segtools/torchhub/facebookresearch_dinov2_main"))
+# dinov2サブモジュールを直接使用する
+# Depth_Anythingのdinov2と衝突しないように先にこちらのパスを追加
+dinov2_path = os.path.join(os.path.dirname(__file__), "dinov2")
+sys.path.insert(0, dinov2_path)
 from dinov2.eval.depth.models import build_depther
 import matplotlib
 from torchvision import transforms
