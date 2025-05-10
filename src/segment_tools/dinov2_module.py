@@ -8,20 +8,8 @@ import sys
 import os
 from PIL import Image
 
-# dinov2のインポートを関数内に移動し、遅延インポートを実装
-dinov2_path = os.path.join(os.path.dirname(__file__), "dinov2")
-
-# build_deptherをローカル関数として定義
-def _get_build_depther():
-    # 関数が呼ばれるまでdinov2パスを追加しない
-    sys.path.insert(0, dinov2_path)
-    try:
-        from dinov2.eval.depth.models import build_depther
-        return build_depther
-    finally:
-        # パスを元に戻す
-        if dinov2_path in sys.path:
-            sys.path.remove(dinov2_path)
+# 直接モジュールのパッケージをインポート
+from .dinov2.dinov2.eval.depth.models import build_depther
 import matplotlib
 from torchvision import transforms
 import urllib
@@ -55,8 +43,6 @@ class CenterPadding(torch.nn.Module):
 def create_depther(cfg, backbone_model, backbone_size, head_type):
     train_cfg = cfg.get("train_cfg")
     test_cfg = cfg.get("test_cfg")
-    # 遅延インポート関数を使用
-    build_depther = _get_build_depther()
     depther = build_depther(cfg.model, train_cfg=train_cfg, test_cfg=test_cfg)
 
     depther.backbone.forward = partial(
