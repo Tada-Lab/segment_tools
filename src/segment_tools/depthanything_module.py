@@ -1,6 +1,3 @@
-import sys
-import os
-
 # 相対インポートを使用
 from .Depth_Anything_segtools.depth_anything.dpt import DepthAnything
 from .Depth_Anything_segtools.depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
