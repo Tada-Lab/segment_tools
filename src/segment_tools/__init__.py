@@ -9,7 +9,7 @@ _MODULES_MAP = {
     "DINO": "dino_module",
     "DINOSeg": "dinoseg_module",
     "OneFormer": "oneformer_module",
-    "DepthAnything": "depthanything_module",
+    "Depth_Anything": "depthanything_module",
     "DINOv2_depth": "dinov2_module",
     "XMem": "xmem_module",
     "SAM": "sam_module",
