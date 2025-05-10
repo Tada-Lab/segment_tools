@@ -322,17 +322,21 @@ def combine_masks(masks: np.ndarray) -> np.ndarray:
     return combined_mask
 
 # 共通ユーティリティ関数
-def check_image_type(image, return_type=None):
+def check_image_type(image, return_type=None, type=None):
     """
     画像の型を変換する便利関数
     
     Args:
         image: 文字列パス、PILイメージ、またはnumpy配列
-        return_type: 返却する型（'pil'または'numpy'）
+        return_type: 返却する型（'pil'または'numpy'）(後方互換性用)
+        type: 返却する型（'pil'または'numpy'）
         
     Returns:
         指定された型の画像
     """
+    # typeとreturn_typeの統合（後方互換性のため）
+    if type is not None:
+        return_type = type
     import numpy as np
     
     # 画像がパスの場合、読み込む
