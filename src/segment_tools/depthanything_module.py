@@ -2,8 +2,8 @@ import sys
 import os
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "Depth-Anything_segtools"))
-from depth_anything.dpt import DepthAnything
-from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
+from segment_tools.Depth_Anything_segtools.depth_anything.dpt import DepthAnything
+from segment_tools.Depth_Anything_segtools.depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
 
 import cv2
 import torch

@@ -6,10 +6,10 @@ from detectron2.config import get_cfg
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "GRiT"))
 sys.path.append(os.path.join(os.path.dirname(__file__), "GRiT/third_party/CenterNet2/projects/CenterNet2/"))
-from centernet.config import add_centernet_config
-from grit.config import add_grit_config
+from segment_tools.GRiT.centernet.config import add_centernet_config
+from segment_tools.GRiT.grit.config import add_grit_config
 
-from grit.predictor import VisualizationDemo
+from segment_tools.GRiT.grit.predictor import VisualizationDemo
 
 from .download_weights import *
 

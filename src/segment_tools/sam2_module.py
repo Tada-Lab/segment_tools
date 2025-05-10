@@ -1,9 +1,9 @@
 from http import server
 from httpx import delete
 import torch
-from sam2.build_sam import build_sam2_video_predictor
-from sam2.build_sam import build_sam2
-from sam2.sam2_image_predictor import SAM2ImagePredictor
+from segment_tools.sam2.build_sam import build_sam2_video_predictor
+from segment_tools.sam2.build_sam import build_sam2
+from segment_tools.sam2.sam2_image_predictor import SAM2ImagePredictor
 import numpy as np
 import os
 from .download_weights import download_weights_SAM2
