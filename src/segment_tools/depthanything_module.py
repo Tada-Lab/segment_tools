@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "Depth-Anything_segtools"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "Depth_Anything_segtools"))
 from depth_anything.dpt import DepthAnything
 from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
 
