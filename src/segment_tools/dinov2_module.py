@@ -15,10 +15,27 @@ from .utils import DynamicModuleLoader
 module_dir = os.path.join(os.path.dirname(__file__), "dinov2")
 loader = DynamicModuleLoader(module_dir, "dinov2")
 
-# build_deptherモジュールをロード
+# モジュール読み込みの優先順位を設定
+# Pythonのsys.pathからXMemモジュールを一時的に削除
+original_sys_path = sys.path.copy()
+sys.path = [p for p in sys.path if 'XMem' not in p]
+
+# 必要なモジュールを順番に読み込む
+# まずopsモジュールを読み込む
+ops_path = os.path.join(module_dir, "dinov2", "eval", "depth", "ops", "__init__.py")
+ops_module = loader.load_module(ops_path, "eval.depth.ops")
+
+# 次にdecode_headsモジュールを読み込む
+decode_heads_path = os.path.join(module_dir, "dinov2", "eval", "depth", "models", "decode_heads", "__init__.py")
+decode_heads_module = loader.load_module(decode_heads_path, "eval.depth.models.decode_heads")
+
+# 最後にmodelsモジュールを読み込む
 models_path = os.path.join(module_dir, "dinov2", "eval", "depth", "models", "__init__.py")
 models_module = loader.load_module(models_path, "eval.depth.models")
 build_depther = models_module.build_depther
+
+# sys.pathを元に戻す
+sys.path = original_sys_path
 import matplotlib
 from torchvision import transforms
 import urllib
