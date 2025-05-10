@@ -1,14 +1,24 @@
-# モジュールインポートの問題を解決するため、sys.pathを使用
-import sys
 import os
+import sys
+from .utils import DynamicModuleLoader
 
-# Depth_Anythingのパスを追加
-depth_anything_path = os.path.join(os.path.dirname(__file__), "Depth_Anything_segtools")
-sys.path.append(depth_anything_path)
+# Depth_Anythingのモジュールをロード
+module_dir = os.path.join(os.path.dirname(__file__), "Depth_Anything_segtools")
+loader = DynamicModuleLoader(module_dir, "depth_anything")
 
-# 内部モジュールをインポート
-from depth_anything.dpt import DepthAnything
-from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
+# 必要なモジュールをロード
+blocks_path = os.path.join(module_dir, "depth_anything", "blocks.py")
+blocks_module = loader.load_module(blocks_path, "blocks")
+
+dpt_path = os.path.join(module_dir, "depth_anything", "dpt.py")
+dpt_module = loader.load_module(dpt_path, "dpt")
+DepthAnything = dpt_module.DepthAnything
+
+transform_path = os.path.join(module_dir, "depth_anything", "util", "transform.py")
+transform_module = loader.load_module(transform_path, "util.transform")
+Resize = transform_module.Resize
+NormalizeImage = transform_module.NormalizeImage
+PrepareForNet = transform_module.PrepareForNet
 
 import cv2
 import torch

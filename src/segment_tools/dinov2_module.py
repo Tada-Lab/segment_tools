@@ -1,13 +1,24 @@
 import math
 import itertools
 from functools import partial
+import os
+import sys
 
 import torch
 import torch.nn.functional as F
 from PIL import Image
 
-# 直接モジュールのパッケージをインポート
-from .dinov2.dinov2.eval.depth.models import build_depther
+# 動的モジュールローダーを使用してdinov2をインポート
+from .utils import DynamicModuleLoader
+
+# DINOv2のモジュールをロード
+module_dir = os.path.join(os.path.dirname(__file__), "dinov2")
+loader = DynamicModuleLoader(module_dir, "dinov2")
+
+# build_deptherモジュールをロード
+models_path = os.path.join(module_dir, "dinov2", "eval", "depth", "models", "__init__.py")
+models_module = loader.load_module(models_path, "eval.depth.models")
+build_depther = models_module.build_depther
 import matplotlib
 from torchvision import transforms
 import urllib
