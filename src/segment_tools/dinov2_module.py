@@ -23,15 +23,15 @@ sys.path = [p for p in sys.path if 'XMem' not in p]
 # 必要なモジュールを順番に読み込む
 # まずopsモジュールを読み込む
 ops_path = os.path.join(module_dir, "dinov2", "eval", "depth", "ops", "__init__.py")
-ops_module = loader.load_module(ops_path, "eval.depth.ops")
+ops_module = loader.load_module(ops_path, "dinov2.eval.depth.ops")
 
 # 次にdecode_headsモジュールを読み込む
 decode_heads_path = os.path.join(module_dir, "dinov2", "eval", "depth", "models", "decode_heads", "__init__.py")
-decode_heads_module = loader.load_module(decode_heads_path, "eval.depth.models.decode_heads")
+decode_heads_module = loader.load_module(decode_heads_path, "dinov2.eval.depth.models.decode_heads")
 
 # 最後にmodelsモジュールを読み込む
 models_path = os.path.join(module_dir, "dinov2", "eval", "depth", "models", "__init__.py")
-models_module = loader.load_module(models_path, "eval.depth.models")
+models_module = loader.load_module(models_path, "dinov2.eval.depth.models")
 build_depther = models_module.build_depther
 
 # sys.pathを元に戻す
