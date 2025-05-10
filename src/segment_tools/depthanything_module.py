@@ -1,6 +1,14 @@
-# 相対インポートを使用
-from .Depth_Anything_segtools.depth_anything.dpt import DepthAnything
-from .Depth_Anything_segtools.depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
+# モジュールインポートの問題を解決するため、sys.pathを使用
+import sys
+import os
+
+# Depth_Anythingのパスを追加
+depth_anything_path = os.path.join(os.path.dirname(__file__), "Depth_Anything_segtools")
+sys.path.append(depth_anything_path)
+
+# 内部モジュールをインポート
+from depth_anything.dpt import DepthAnything
+from depth_anything.util.transform import Resize, NormalizeImage, PrepareForNet
 
 import cv2
 import torch
