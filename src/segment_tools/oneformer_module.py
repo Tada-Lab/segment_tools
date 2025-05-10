@@ -23,8 +23,8 @@ import sys
 import PIL
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "OneFormer_segtools"))
-from segment_tools.OneFormer_segtools.demo.defaults import DefaultPredictor
-from segment_tools.OneFormer_segtools.demo.visualizer import Visualizer, ColorMode
+from demo.defaults import DefaultPredictor
+from demo.visualizer import Visualizer, ColorMode
 
 
 # import OneFormer Project

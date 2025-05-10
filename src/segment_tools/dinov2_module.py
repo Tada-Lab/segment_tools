@@ -9,7 +9,7 @@ import os
 from PIL import Image
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "dinov2"))
-from segment_tools.dinov2.eval.depth.models import build_depther
+from dinov2.eval.depth.models import build_depther
 import matplotlib
 from torchvision import transforms
 import urllib
